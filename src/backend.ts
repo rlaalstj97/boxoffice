@@ -19,8 +19,8 @@ app.get("/api/boxoffice", async (req, res) => {
     }
 
     const key = getKobisApiKey();
-    // Use secure HTTPS endpoint
-    const apiUrl = `https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${key}&targetDt=${date}`;
+    // Use stable http endpoint to avoid SSL verification failures on serverless/Vercel
+    const apiUrl = `http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${key}&targetDt=${date}`;
     console.log(`[API] Fetching Box Office for date: ${date}`);
 
     const response = await fetch(apiUrl);
@@ -45,8 +45,8 @@ app.get("/api/movie/:movieCd", async (req, res) => {
     }
 
     const key = getKobisApiKey();
-    // Use secure HTTPS endpoint
-    const apiUrl = `https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=${key}&movieCd=${movieCd}`;
+    // Use stable http endpoint to avoid SSL verification failures on serverless/Vercel
+    const apiUrl = `http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=${key}&movieCd=${movieCd}`;
     console.log(`[API] Fetching Movie Detail for code: ${movieCd}`);
 
     const response = await fetch(apiUrl);
