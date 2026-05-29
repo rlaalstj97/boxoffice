@@ -85,8 +85,8 @@ export default function MovieList({
               onClick={() => onSelectMovie(movie.movieCd)}
               className={`group flex items-center gap-4 p-4 rounded-xl cursor-pointer transition-all border outline-none
                 ${isSelected 
-                  ? "bg-white/5 border-[#E2B616]/60 dark:bg-white/5 dark:border-[#E2B616]/60 shadow-md ring-1 ring-[#E2B616]/50 [&:not(.dark)]:bg-amber-500/5 [&:not(.dark)]:border-[#E2B616] [&:not(.dark)]:ring-[#E2B616]/40"
-                  : "bg-transparent border-white/5 hover:bg-white/5 hover:border-white/10 dark:border-white/5 dark:hover:bg-white/5 dark:hover:border-white/10 [&:not(.dark)]:bg-white [&:not(.dark)]:border-zinc-200/60 [&:not(.dark)]:hover:bg-zinc-50 [&:not(.dark)]:hover:border-zinc-300"
+                  ? "bg-[#E2B616]/10 border-[#E2B616]/65 shadow-md ring-1 ring-[#E2B616]/50 dark:bg-white/5 dark:border-[#E2B616]/60"
+                  : "bg-white border-zinc-200/60 hover:bg-zinc-50 hover:border-zinc-300 dark:bg-transparent dark:border-white/5 dark:hover:bg-white/5 dark:hover:border-white/10"
                 }
               `}
               whileHover={{ 
@@ -100,7 +100,7 @@ export default function MovieList({
                 <span className={`font-serif italic font-black text-3xl transition-colors duration-250
                   ${isSelected
                     ? "text-[#E2B616]"
-                    : "text-white/20 group-hover:text-white/40 [&:not(.dark)]:text-zinc-300 [&:not(.dark)]:group-hover:text-zinc-450"
+                    : "text-zinc-300 group-hover:text-zinc-450 dark:text-white/20 dark:group-hover:text-white/40"
                   }
                 `}>
                   {movie.rank}
@@ -123,7 +123,7 @@ export default function MovieList({
                       {Math.abs(rankIntenNum)}
                     </span>
                   ) : (
-                    <span className="inline-flex items-center text-xs text-white/30 dark:text-white/30 [&:not(.dark)]:text-zinc-400 font-mono">
+                    <span className="inline-flex items-center text-xs text-zinc-400 dark:text-white/30 font-mono">
                       <Minus className="w-3 h-3" />
                     </span>
                   )}
@@ -135,8 +135,8 @@ export default function MovieList({
                 <div className="flex justify-between items-start gap-2">
                   <h3 className={`font-sans font-semibold text-sm sm:text-base tracking-tight truncate transition-colors duration-200
                     ${isSelected 
-                      ? "text-white [&:not(.dark)]:text-[#0A0A0B]" 
-                      : "text-white/80 dark:text-white/80 hover:text-white [&:not(.dark)]:text-zinc-855 [&:not(.dark)]:hover:text-[#E2B616]"
+                      ? "text-zinc-900 dark:text-white" 
+                      : "text-zinc-800 hover:text-[#E2B616] dark:text-white/80 dark:hover:text-white"
                     }
                   `}>
                     {movie.movieNm}
@@ -144,15 +144,15 @@ export default function MovieList({
                 </div>
 
                 {/* Meta details with high-contrast text */}
-                <div className="mt-1.5 flex flex-wrap items-center gap-x-2 text-[11px] text-white/40 dark:text-white/40 [&:not(.dark)]:text-zinc-500 font-sans">
+                <div className="mt-1.5 flex flex-wrap items-center gap-x-2 text-[11px] text-zinc-500 dark:text-white/40 font-sans">
                   <span>개봉 {movie.openDt.replace(/-/g, ".")}</span>
-                  <span className="text-white/10 dark:text-white/10 [&:not(.dark)]:text-zinc-250">|</span>
-                  <span>단일 관객 <strong className="font-semibold text-white/60 dark:text-white/60 [&:not(.dark)]:text-zinc-700">{formatNumber(movie.audiCnt)}명</strong></span>
+                  <span className="text-zinc-250 dark:text-white/10">|</span>
+                  <span>단일 관객 <strong className="font-semibold text-zinc-700 dark:text-white/60">{formatNumber(movie.audiCnt)}명</strong></span>
                 </div>
 
-                <div className="mt-1 flex items-center text-[11px] text-white/30 dark:text-white/30 [&:not(.dark)]:text-zinc-400 truncate">
+                <div className="mt-1 flex items-center text-[11px] text-zinc-400 dark:text-white/30 truncate">
                   <span>누적 {formatNumber(movie.audiAcc)}명</span>
-                  <span className="mx-1.5 text-white/10">|</span>
+                  <span className="mx-1.5 text-zinc-200 dark:text-white/10">|</span>
                   <span>매출액 {formatSales(movie.salesAmt)} ({movie.salesShare}%)</span>
                 </div>
               </div>

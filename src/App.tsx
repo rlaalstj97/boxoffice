@@ -102,12 +102,10 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col h-screen w-full bg-[#0A0A0B] text-[#E8E8E8] dark:bg-[#0A0A0B] dark:text-[#E8E8E8] transition-colors duration-300 overflow-hidden font-sans
-      [&:not(.dark)]:bg-[#F9F9FA] [&:not(.dark)]:text-[#18181B]">
+    <div className="flex flex-col h-screen w-full bg-[#F9F9FA] text-[#18181B] dark:bg-[#0A0A0B] dark:text-[#E8E8E8] transition-colors duration-300 overflow-hidden font-sans">
       
       {/* Sophisticated Header */}
-      <header className="flex h-16 sm:h-20 shrink-0 items-center justify-between px-4 sm:px-8 border-b transition-colors duration-350 bg-[#141416] border-white/10 dark:bg-[#141416] dark:border-white/10
-        [&:not(.dark)]:bg-[#FFFFFF] [&:not(.dark)]:border-zinc-200/80 [&:not(.dark)]:shadow-xs">
+      <header className="flex h-16 sm:h-20 shrink-0 items-center justify-between px-4 sm:px-8 border-b transition-colors duration-350 bg-white border-zinc-200/80 shadow-xs dark:bg-[#141416] dark:border-white/10">
         
         {/* Brand Logo Identity */}
         <div className="flex items-center space-x-3 sm:space-x-4">
@@ -115,10 +113,10 @@ export default function App() {
             <span className="text-[#0A0A0B] font-black text-lg sm:text-xl font-serif italic">K</span>
           </div>
           <div>
-            <h1 className="text-xl sm:text-2xl font-serif italic tracking-tight text-white [&:not(.dark)]:text-zinc-900 flex items-center gap-2">
+            <h1 className="text-xl sm:text-2xl font-serif italic tracking-tight text-zinc-900 dark:text-white flex items-center gap-2">
               KOBIS Box Office
             </h1>
-            <p className="hidden xs:block text-[10px] text-white/40 [&:not(.dark)]:text-zinc-400 uppercase tracking-widest font-mono mt-0.5">
+            <p className="hidden xs:block text-[10px] text-zinc-400 dark:text-white/40 uppercase tracking-widest font-mono mt-0.5">
               KOREAN BOX OFFICE DATABASE
             </p>
           </div>
@@ -136,20 +134,19 @@ export default function App() {
               value={selectedDate} 
               max={maxDate} 
               onChange={(e) => setSelectedDate(e.target.value)}
-              className="bg-white/5 border border-white/10 text-white rounded-lg px-2 sm:px-3 py-1 text-xs sm:text-sm focus:outline-none focus:border-[#E2B616] transition-all cursor-pointer font-mono mt-0.5
-                [&:not(.dark)]:bg-zinc-100 [&:not(.dark)]:border-zinc-200 [&:not(.dark)]:text-zinc-800 [&:not(.dark)]:focus:border-[#E2B616]"
+              className="bg-zinc-100 border border-zinc-200 text-zinc-800 focus:outline-none focus:border-[#E2B616] transition-all cursor-pointer font-mono mt-0.5 dark:bg-white/5 dark:border-white/10 dark:text-white dark:focus:border-[#E2B616]"
             />
           </div>
           
           {/* Theme custom select toggle pill */}
-          <div className="flex bg-white/5 rounded-full p-1 border border-white/10 dark:bg-white/5 dark:border-white/10 [&:not(.dark)]:bg-zinc-200/60 [&:not(.dark)]:border-zinc-250">
+          <div className="flex bg-zinc-200/60 rounded-full p-1 border border-zinc-250 dark:bg-white/5 dark:border-white/10">
             <button 
               id="pill-dark-toggle"
               onClick={() => setIsDark(true)}
               className={`px-3 sm:px-4 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 ${
                 isDark 
                   ? "bg-[#E2B616] text-[#0A0A0B] shadow-sm font-bold" 
-                  : "text-white/40 dark:text-white/40 [&:not(.dark)]:text-zinc-500 hover:text-indigo-400"
+                  : "text-zinc-500 hover:text-indigo-600 dark:text-white/40 dark:hover:text-indigo-400"
               }`}
             >
               Dark
@@ -160,7 +157,7 @@ export default function App() {
               className={`px-3 sm:px-4 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 ${
                 !isDark 
                   ? "bg-[#E2B616] text-[#0A0A0B] shadow-sm font-bold" 
-                  : "text-white/40 dark:text-white/40 [&:not(.dark)]:text-zinc-500 hover:text-indigo-400"
+                  : "text-zinc-500 hover:text-indigo-600 dark:text-white/40 dark:hover:text-indigo-400"
               }`}
             >
               Light
@@ -173,17 +170,14 @@ export default function App() {
       <main className="flex flex-1 overflow-hidden">
         
         {/* Left Side Column: Film Grid/List (40% width, min 320px) */}
-        <section className="w-full md:w-[400px] border-r border-white/10 bg-[#141416]/40 flex flex-col shrink-0 overflow-hidden
-          dark:border-white/10 dark:bg-[#141416]/40 [&:not(.dark)]:bg-white [&:not(.dark)]:border-zinc-150/80
-          mobile-list-view">
+        <section className="w-full md:w-[400px] border-r border-zinc-150/80 bg-white flex flex-col shrink-0 overflow-hidden dark:border-white/10 dark:bg-[#141416]/40 mobile-list-view">
           
-          <div className="px-5 py-4 border-b border-white/5 bg-[#141416]/60 flex justify-between items-center shrink-0
-            dark:border-white/5 dark:bg-[#141416]/60 [&:not(.dark)]:bg-zinc-50 [&:not(.dark)]:border-zinc-150/85">
+          <div className="px-5 py-4 border-b border-zinc-150/85 bg-zinc-55 flex justify-between items-center shrink-0 dark:border-white/5 dark:bg-[#141416]/60">
             <h2 className="text-xs font-bold uppercase tracking-widest text-[#E2B616] flex items-center gap-1.5 font-mono">
               <span className="w-1.5 h-1.5 bg-[#E2B616] rounded-full animate-ping"></span>
               박스오피스 TOP 10
             </h2>
-            <span className="text-[10px] text-white/40 [&:not(.dark)]:text-zinc-500 font-mono font-medium">
+            <span className="text-[10px] text-zinc-500 dark:text-white/40 font-mono font-medium">
               {formatKoreanDate(selectedDate)}
             </span>
           </div>
@@ -192,13 +186,13 @@ export default function App() {
             {loading ? (
               <div className="h-full flex flex-col items-center justify-center py-20 text-center">
                 <Loader2 className="w-8 h-8 text-[#E2B616] animate-spin mb-3" />
-                <p className="text-xs text-white/50 [&:not(.dark)]:text-zinc-500">순위 데이터를 수신하는 중입니다...</p>
+                <p className="text-xs text-zinc-500 dark:text-white/50">순위 데이터를 수신하는 중입니다...</p>
               </div>
             ) : error ? (
               <div className="h-full flex flex-col items-center justify-center py-16 text-center px-4">
                 <AlertCircle className="w-8 h-8 text-rose-500 mb-3" />
                 <span className="text-xs text-rose-500 font-semibold mb-1">에러 발생</span>
-                <p className="text-xs text-white/40 [&:not(.dark)]:text-zinc-400 line-clamp-3">{error}</p>
+                <p className="text-xs text-zinc-400 dark:text-white/40 line-clamp-3">{error}</p>
                 <button 
                   onClick={() => setSelectedDate(getYesterdayDateString())}
                   className="mt-4 px-3 py-1.5 text-xs bg-white/10 hover:bg-white/15 rounded-lg text-white font-medium"
@@ -218,8 +212,7 @@ export default function App() {
 
         {/* Right Side Column: Film Details (60% width) */}
         {/* On mobile devices, let's allow slide details overlay if they clicked a card */}
-        <section className={`flex-1 bg-gradient-to-br from-[#0A0A0B] to-[#141416]/95 overflow-hidden transition-all duration-300 md:block
-          dark:from-[#0A0A0B] dark:to-[#141416]/95 [&:not(.dark)]:from-[#FFFFFF] [&:not(.dark)]:to-[#F4F4F5]
+        <section className={`flex-1 bg-gradient-to-br from-[#FFFFFF] to-[#F4F4F5] dark:from-[#0A0A0B] dark:to-[#141416]/95 overflow-hidden transition-all duration-300 md:block
           movie-detail-view-container
           ${selectedMovieCd ? "fixed inset-0 z-40 md:relative md:inset-auto" : "hidden md:block"}
         `}>
@@ -231,8 +224,7 @@ export default function App() {
       </main>
 
       {/* Elegant Status Footer */}
-      <footer className="h-8 shrink-0 bg-[#050505] border-t border-white/5 px-4sm:px-6 flex items-center justify-between text-[9px] uppercase tracking-widest text-white/30 dark:bg-[#050505] dark:border-white/5 dark:text-white/30
-        [&:not(.dark)]:bg-[#F4F4F5] [&:not(.dark)]:border-zinc-250 [&:not(.dark)]:text-zinc-500 font-mono">
+      <footer className="h-8 shrink-0 bg-[#F4F4F5] border-t border-zinc-250 px-4 sm:px-6 flex items-center justify-between text-[9px] uppercase tracking-widest text-zinc-500 dark:bg-[#050505] dark:border-white/5 dark:text-white/30 font-mono">
         <div>KOBIS INTEGRATED NETWORK API CONNECTED</div>
         <div className="flex space-x-4 items-center">
           <span className="hidden xs:inline">STATUS: COMPLIANT</span>
